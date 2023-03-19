@@ -1,8 +1,9 @@
 package com.minstone.gitapi
 
-import android.support.v7.app.AppCompatActivity
+
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.minstone.gitapi.DTO.Api
 import com.minstone.gitapi.DTO.Github_Data
@@ -16,7 +17,6 @@ import com.minstone.gitapi.DTO.UserData.userProfile
 import com.minstone.gitapi.DTO.UserData.username
 import com.minstone.gitapi.DTO.Username
 import com.minstone.gitapi.databinding.ActivityMain2Binding
-import com.minstone.gitapi.databinding.ActivityMainBinding
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 

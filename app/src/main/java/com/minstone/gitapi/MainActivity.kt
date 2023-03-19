@@ -1,8 +1,8 @@
 package com.minstone.gitapi
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.minstone.gitapi.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
