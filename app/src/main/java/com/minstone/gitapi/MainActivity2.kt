@@ -3,13 +3,16 @@ package com.minstone.gitapi
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.bumptech.glide.Glide
 import com.minstone.gitapi.DTO.Api
 import com.minstone.gitapi.DTO.Github_Data
 import com.minstone.gitapi.DTO.UserData
 import com.minstone.gitapi.DTO.UserData.follower
 import com.minstone.gitapi.DTO.UserData.following
 import com.minstone.gitapi.DTO.UserData.oneline
+import com.minstone.gitapi.DTO.UserData.url
 import com.minstone.gitapi.DTO.UserData.userId
+import com.minstone.gitapi.DTO.UserData.userProfile
 import com.minstone.gitapi.DTO.UserData.username
 import com.minstone.gitapi.DTO.Username
 import com.minstone.gitapi.databinding.ActivityMain2Binding
@@ -49,6 +52,7 @@ class MainActivity2 : AppCompatActivity() {
                 val userData = response.body()
                 UserData.userId = userData!!.userId.toString()
                 UserData.userProfile= userData!!.userProfile.toString()
+                UserData.url= userData!!.url.toString()
                 UserData.follower = userData.follower!!.toInt()
                 UserData.following = userData.following!!.toInt()
                 UserData.oneline = userData!!.oneline.toString()
@@ -70,6 +74,11 @@ class MainActivity2 : AppCompatActivity() {
         binding.textFollowers.text = follower.toString()
         binding.textFollowing.text = following.toString()
         binding.textOneline.text = oneline
+        Username.URl = url.toString()
+        Glide.with(this@MainActivity2)
+            .load("${userProfile.toString()}")
+            .into(binding.imgProfile)
+
     }
 
 }
