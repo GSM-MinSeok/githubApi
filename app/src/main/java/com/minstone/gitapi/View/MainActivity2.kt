@@ -4,10 +4,12 @@ package com.minstone.gitapi.View
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 
 import com.minstone.gitapi.model.data.GithubData
 
 import com.minstone.gitapi.databinding.ActivityMain2Binding
+import com.minstone.gitapi.model.api.RetorfitBuilder
 import com.minstone.gitapi.model.api.RetorfitBuilder.api
 import retrofit2.*
 
@@ -31,25 +33,21 @@ class MainActivity2 : AppCompatActivity() {
 
         call.enqueue(object : Callback<GithubData> {
             override fun onResponse(call: Call<GithubData>, response: Response<GithubData>) {
-
+                val userInfo = response.body()
+                Log.d("testt",userInfo.toString())
+                binding.textFollowers.text = userInfo?.followers.toString()
+                binding.textFollowing.text = userInfo?.following.toString()
+                binding.textUsername.text = userInfo?.userName.toString()
+                binding.textUserid.text = userInfo?.userId.toString()
+                binding.textOneline.text = userInfo?.bio.toString()
+                Glide.with(this@MainActivity2)
+                    .load(userInfo?.userProfile)
+                    .into(binding.imgProfile)
             }
 
             override fun onFailure(call: Call<GithubData>, t: Throwable) {
-                Log.d("testFail","asdasd")
+                Log.d("testt","Fail")
             }
         })
     }
-    /*fun dataInput() {
-        Log.d("Log", login.toString())
-        binding.textUsername.text = login.toString()
-        binding.textUserid.text = id.toString()
-        binding.textFollowers.text = followers.toString()
-        binding.textFollowing.text = following.toString()
-        binding.textOneline.text = bio.toString()
-        Username.URl = html_url.toString()
-        Glide.with(this@MainActivity2)
-            .load("${avatar_url.toString()}")
-            .into(binding.imgProfile)
-
-    }*/
 }
