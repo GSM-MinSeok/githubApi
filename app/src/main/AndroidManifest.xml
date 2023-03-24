@@ -12,10 +12,10 @@
         android:theme="@style/Theme.Gitapi"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity2"
+            android:name=".View.MainActivity2"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".View.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
