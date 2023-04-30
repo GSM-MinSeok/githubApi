@@ -1,4 +1,4 @@
-package com.minstone.gitapi.View
+package com.minstone.gitapi.presentation
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,18 +12,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
         binding.btnOpen.setOnClickListener {
-           val username:String =  binding.etUsername.text.toString().trim()
-            val intent = Intent(this, MainActivity2::class.java)
-            intent.putExtra("username",username)
-            startActivity(intent)
+            val username = binding.etUsername.text.toString()
+            if(username.isNotEmpty()) {
+                val intent = Intent(this, MainActivity2::class.java)
+                intent.putExtra("username", username)
+                startActivity(intent)
+            }
         }
-
-
-
-
     }
-
 }

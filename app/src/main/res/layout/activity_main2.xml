@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".View.MainActivity2">
+        tools:context=".presentation.MainActivity2">
 
         <ImageView
             android:id="@+id/img_profile"
@@ -21,17 +21,17 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
-            android:id="@+id/text_userName"
+            android:id="@+id/text_username"
             android:layout_width="100dp"
             android:layout_height="30dp"
             app:layout_constraintStart_toEndOf="@id/img_profile"
             app:layout_constraintBottom_toTopOf="@id/text_bio" />
 
         <TextView
-            android:id="@+id/text_userId"
+            android:id="@+id/text_user_id"
             android:layout_width="150dp"
             android:layout_height="30dp"
-            app:layout_constraintStart_toEndOf="@id/text_userName"
+            app:layout_constraintStart_toEndOf="@id/text_username"
             app:layout_constraintBottom_toTopOf="@id/text_bio" />
 
         <TextView
@@ -39,7 +39,7 @@
             android:layout_width="300dp"
             android:layout_height="30dp"
             app:layout_constraintStart_toEndOf="@id/img_profile"
-            app:layout_constraintTop_toBottomOf="@id/text_userName" />
+            app:layout_constraintTop_toBottomOf="@id/text_username" />
 
         <TextView
             android:id="@+id/text_followers"
